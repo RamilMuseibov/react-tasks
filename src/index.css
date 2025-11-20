@@ -8,37 +8,3 @@
   background-color: #242424;
   padding: 10px;
 }
-
-.tasks {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.btn-container {
-  display: flex;
-  padding: 3px;
-  background-color: rgb(163, 171, 171);
-  width: 300px;
-  border-radius: 5px;
-}
-
-.btn {
-  cursor: pointer;
-  font-size: 15px;
-  width: 100px;
-  height: 30px; 
-  background-color: transparent;
-  border: none;
-  border-radius: 2px;
-}
-
-.active-btn {
-  cursor: pointer;
-  font-size: 15px;
-  width: 100px;
-  height: 30px;
-  background-color: rgb(131, 135, 135);
-  border: none;
-  border-radius: 2px;
-}

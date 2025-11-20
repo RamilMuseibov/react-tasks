@@ -1,0 +1,13 @@
+.converter {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-bottom: 2px solid rgb(237, 235, 235);
+}
+
+.main {
+  display: flex;
+  gap: 10rem;
+  margin-bottom: 20px;
+}

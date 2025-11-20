@@ -1,0 +1,14 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.img {
+  width: 500px;
+  height: 300p;
+}
