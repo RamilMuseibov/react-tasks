@@ -1,6 +1,7 @@
 .slider {
   display: flex;
   flex-direction: column;
+  border-bottom: 2px solid rgb(237, 235, 235);
 }
 
 .main {
