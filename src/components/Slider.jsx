@@ -7,17 +7,17 @@ import image_4 from "../images/165919_amegakure_from_naruto_shippuden_in_a_cyber
 import image_5 from "../images/Screenshot_20231123_143453_VK.jpg";
 import image_6 from "../images/Screenshot_20231123_143502_VK.jpg";
 
+const images = [
+  { id: 1, src: image_1 },
+  { id: 2, src: image_2 },
+  { id: 3, src: image_3 },
+  { id: 4, src: image_4 },
+  { id: 5, src: image_5 },
+  { id: 6, src: image_6 },
+];
+
 export default function Slider() {
   const [currentImage, setCurrentImage] = useState(0);
-
-  const images = [
-    { id: 1, src: image_1 },
-    { id: 2, src: image_2 },
-    { id: 3, src: image_3 },
-    { id: 4, src: image_4 },
-    { id: 5, src: image_5 },
-    { id: 6, src: image_6 },
-  ];
 
   function slideImageForward() {
     if (currentImage === images.length - 1) {
@@ -74,8 +74,8 @@ export default function Slider() {
             <path d="m13 17 5-5-5-5" />
           </svg>
         </button>
+        <input type="range" />
       </div>
     </div>
   );
 }
- 
