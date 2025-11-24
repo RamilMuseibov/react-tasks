@@ -1,21 +1,19 @@
 import React, { useState } from "react";
 import styles from "../styles/tabs.module.css";
 
+const content = {
+  Description: <p>Вкладка с Description</p>,
+  Reviews: <p>Чето с Reviews</p>,
+  Specifications: <p>Какие-то Specifications</p>,
+};
+
 export default function Tabs() {
   console.log("renderTasks");
 
   const [activeTab, setActiveTab] = useState("Description");
 
-  const content = {
-    Description: <p>Вкладка с Description</p>,
-    Reviews: <p>Чето с Reviews</p>,
-    Specifications: <p>Какие-то Specifications</p>,
-  };
-
   return (
     <div className={styles["tabs"]}>
-      <h2>{activeTab}</h2>
-      {content[activeTab]}
       <div className={styles["btn-container"]}>
         <button
           className={activeTab === "Description" ? styles["active-btn"] : styles["btn"]}
@@ -38,6 +36,8 @@ export default function Tabs() {
           Specifications
         </button>
       </div>
+
+      <div>{content[activeTab]}</div>
     </div>
   );
-} 
+}
