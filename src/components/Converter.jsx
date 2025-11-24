@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import styles from "../styles/converter.module.css";
 
+const courseDollar = 80.55; //COURSE_DOLLAR
+const coursePounds = 105.18;
+const courseYen = 0.51;
+
 export default function Converter() {
   const [rubls, setRubles] = useState("");
   const [dollars, setDollars] = useState("");
   const [pounds, setPounds] = useState("");
   const [yens, setYens] = useState("");
-
-  const courseDollar = 80.55;
-  const coursePounds = 105.18;
-  const courseYen = 0.51;
 
   console.log(+(100 / courseDollar).toFixed(2));
 
@@ -22,7 +22,6 @@ export default function Converter() {
       return;
     }
 
-    setRubles(value);
     setDollars(+(value / courseDollar).toFixed(2));
     setPounds(+(value / coursePounds).toFixed(2));
     setYens(+(value / courseYen).toFixed(2));
@@ -37,7 +36,6 @@ export default function Converter() {
       return;
     }
 
-    setDollars(value);
     setRubles(+(value * courseDollar).toFixed(2));
     setPounds(+((value * courseDollar) / coursePounds).toFixed(2));
     setYens(+((value * courseDollar) / courseYen).toFixed(2));
@@ -52,7 +50,6 @@ export default function Converter() {
       return;
     }
 
-    setPounds(value);
     setRubles(+(value * coursePounds).toFixed(2));
     setDollars(+((value * coursePounds) / courseDollar).toFixed(2));
     setYens(+((value * coursePounds) / courseYen).toFixed(2));
@@ -67,7 +64,6 @@ export default function Converter() {
       return;
     }
 
-    setYens(value);
     setRubles(+(value * courseYen).toFixed(2));
     setDollars(+((value * courseYen) / courseDollar).toFixed(2));
     setPounds(+((value * courseYen) / coursePounds).toFixed(2));
@@ -123,4 +119,3 @@ export default function Converter() {
     </div>
   );
 }
- 
