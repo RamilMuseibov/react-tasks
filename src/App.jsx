@@ -4,6 +4,8 @@ import Accordion from "./components/Accordion";
 import Slider from "./components/Slider";
 import SwitchingThemes from "./components/SwitchingThemes";
 import Password from "./components/Password";
+import Counter from "./components/Counter";
+import Volume from "./components/Volume";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Slider />
       <SwitchingThemes />
       <Password />
+      <Counter />
+      <Volume />
     </>
   );
 }
