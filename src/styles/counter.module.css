@@ -1,0 +1,30 @@
+.counter {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid rgb(237, 235, 235);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-steps {
+  width: 200px;
+}
+
+.btn-container {
+  width: 210px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.btn-increment {
+  padding: 5px;
+}
+
+.btn-decrement {
+  padding: 5px;
+}
