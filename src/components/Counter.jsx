@@ -4,7 +4,7 @@ import styles from "../styles/counter.module.css";
 export default function Counter() {
   const [count, setCount] = useState(0);
 
-  const [stepSize, setStepSize] = useState(0);
+  const [stepSize, setStepSize] = useState("");
 
   return (
     <div className={styles["counter"]}>
