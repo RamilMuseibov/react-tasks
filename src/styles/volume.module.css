@@ -1,0 +1,29 @@
+.volume {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid rgb(237, 235, 235);
+}
+
+.main {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 30px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider {
+  accent-color: aliceblue;
+
+  &:active {
+    accent-color: rgb(156, 199, 236);
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
