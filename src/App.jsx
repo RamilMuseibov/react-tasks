@@ -6,6 +6,7 @@ import SwitchingThemes from "./components/SwitchingThemes";
 import Password from "./components/Password";
 import Counter from "./components/Counter";
 import Volume from "./components/Volume";
+import Downloader from "./components/Downloader";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Password />
       <Counter />
       <Volume />
+      <Downloader />
     </>
   );
 }
