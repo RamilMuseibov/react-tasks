@@ -1,0 +1,21 @@
+.downloader {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid rgb(237, 235, 235);
+}
+
+.main {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 130px;
+}
+
+.btn {
+  cursor: pointer;
+  width: 100px;
+  height: 35px;
+}
+
+.btn:disabled {
+  cursor: default;
+}
