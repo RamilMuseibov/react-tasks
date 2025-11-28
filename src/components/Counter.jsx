@@ -19,7 +19,7 @@ export default function Counter() {
         />
         <div className={styles["btn-container"]}>
           <button
-            onClick={() => setCount(count + +stepSize)}
+            onClick={() => setCount(count - +stepSize)}
             className={styles["btn-decrement"]}
           >
             Decrement
@@ -28,7 +28,7 @@ export default function Counter() {
           <div>{count}</div>
 
           <button
-            onClick={() => setCount(count - +stepSize)}
+            onClick={() => setCount(count + +stepSize)}
             className={styles["btn-increment"]}
           >
             Increment
