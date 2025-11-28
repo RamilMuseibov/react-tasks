@@ -1,0 +1,30 @@
+.squares {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid rgb(237, 235, 235);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 30px;
+}
+
+.btn_add-square {
+  cursor: pointer;
+  width: 100px;
+  height: 35px;
+}
+
+.squares-container {
+  flex-wrap: wrap;
+  display: flex;
+  gap: 2rem;
+}
+
+.square {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+}
