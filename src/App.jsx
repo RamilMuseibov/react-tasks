@@ -7,6 +7,7 @@ import Password from "./components/Password";
 import Counter from "./components/Counter";
 import Volume from "./components/Volume";
 import Downloader from "./components/Downloader";
+import Squares from "./components/Squares";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Counter />
       <Volume />
       <Downloader />
+      <Squares />
     </>
   );
 }
