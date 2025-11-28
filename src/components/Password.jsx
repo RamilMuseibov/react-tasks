@@ -38,9 +38,8 @@ const closedEye = (
 );
 
 export default function Password() {
-  const [changeTypeInputPassword, setChangeTypeInputPassword] = useState("password");
-  const [changeTypeInputConfPassword, setChangeTypeInputConfPassword] =
-    useState("password");
+  const [changeTypeInputPassword, setChangeTypeInputPassword] = useState(false);
+  const [changeTypeInputConfPassword, setChangeTypeInputConfPassword] = useState(false);
 
   return (
     <div className={styles["password"]}>
@@ -65,18 +64,14 @@ export default function Password() {
               <input
                 placeholder="Enter the password..."
                 className={styles["input_password-conf"]}
-                type={changeTypeInputPassword === "password" ? "password" : "text"}
+                type={changeTypeInputPassword ? "text" : "password"}
               />
               <button
-                onClick={() =>
-                  setChangeTypeInputPassword(
-                    changeTypeInputPassword === "password" ? "text" : "password"
-                  )
-                }
+                onClick={() => setChangeTypeInputPassword(!changeTypeInputPassword)}
                 className={styles["btn_switching-type-input"]}
                 type="button"
               >
-                {changeTypeInputPassword === "password" ? openEye : closedEye}
+                {changeTypeInputPassword ? closedEye : openEye}
               </button>
             </div>
 
@@ -84,18 +79,16 @@ export default function Password() {
               <input
                 placeholder="Confirm the password..."
                 className={styles["input_password-conf"]}
-                type={changeTypeInputConfPassword === "password" ? "password" : "text"}
+                type={changeTypeInputConfPassword ? "text" : "password"}
               />
               <button
                 onClick={() =>
-                  setChangeTypeInputConfPassword(
-                    changeTypeInputConfPassword === "password" ? "text" : "password"
-                  )
+                  setChangeTypeInputConfPassword(!changeTypeInputConfPassword)
                 }
                 className={styles["btn_switching-type-input"]}
                 type="button"
               >
-                {changeTypeInputConfPassword === "password" ? openEye : closedEye}
+                {changeTypeInputConfPassword ? closedEye : openEye}
               </button>
             </div>
           </div>
