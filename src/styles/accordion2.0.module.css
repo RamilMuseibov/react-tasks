@@ -1,0 +1,57 @@
+.accordion {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-bottom: 2px solid rgb(237, 235, 235);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  gap: 1rem;
+}
+
+.btn {
+  cursor: pointer;
+  font-size: 15px;
+  width:600px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-radius: 2px;
+}
+
+.title-arrow-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(237, 235, 235);
+}
+
+.title-arrow-container.open {
+  padding-bottom: 2rem;
+}
+
+.arrow {
+  transition: transform 0.2s ease;
+}
+
+.arrow-rotated {
+  transform: rotate(180deg);
+}
+
+.section-subtitle {
+  padding-left: 0.5rem;
+  max-height: 100px;
+  opacity: 1;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.hidden {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
