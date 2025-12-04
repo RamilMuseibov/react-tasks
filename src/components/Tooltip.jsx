@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import styles from "../styles/tooltip.module.css";
 
 export default function Tooltip() {
+  const [activeSquare, setActiveSquare] = useState();
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   const squares = [
-    { id: 1, color: "#809423" },
-    { id: 2, color: "#987123" },
-    { id: 3, color: "#345098" },
-    { id: 4, color: "#681234" },
-    { id: 5, color: "#0ccbdcff" },
+    { id: 1, color: "lightgreen" },
+    { id: 2, color: "brown" },
+    { id: 3, color: "blue" },
+    { id: 4, color: "purple" },
+    { id: 5, color: "burlywood" },
   ];
-  
+  console.log(mousePosition);
+  console.log(activeSquare);
 
   return (
     <div className={styles["tooltip"]}>
@@ -18,12 +22,29 @@ export default function Tooltip() {
         <div className={styles["squares-container"]}>
           {squares.map((square) => (
             <div
+              onMouseEnter={() => setActiveSquare({ id: square.id, color: square.color })}
+              onMouseLeave={() => setActiveSquare(null)}
+              onMouseMove={(e) => setMousePosition({ x: e.clientX, y: e.clientY })}
               key={square.id}
               style={{ backgroundColor: square.color }}
               className={styles["square"]}
             ></div>
           ))}
         </div>
+
+        {activeSquare ? (
+          <div
+            style={{
+              position: "fixed",
+              left: mousePosition.x + 10,
+              top: mousePosition.y + 10,
+              padding: "4px 10px",
+              pointerEvents: "none",
+            }}
+          >
+            {activeSquare.color}
+          </div>
+        ) : null}
       </div>
     </div>
   );
