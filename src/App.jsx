@@ -8,6 +8,10 @@ import Counter from "./components/Counter";
 import Volume from "./components/Volume";
 import Downloader from "./components/Downloader";
 import Squares from "./components/Squares";
+import Accordion2 from "./components/Accordion2.0";
+import Multilingualism from "./components/Multilingualism";
+import FetchUsers from "./components/FetchUsers";
+import Tooltip from "./components/Tooltip";
 
 function App() {
   return (
@@ -22,6 +26,10 @@ function App() {
       <Volume />
       <Downloader />
       <Squares />
+      <Accordion2 />
+      <Multilingualism />
+      <FetchUsers />
+      <Tooltip />
     </>
   );
 }
