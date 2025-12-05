@@ -10,7 +10,7 @@ import Downloader from "./components/Downloader";
 import Squares from "./components/Squares";
 import Accordion2 from "./components/Accordion2.0";
 import Multilingualism from "./components/Multilingualism";
-import FetchUsers from "./components/FetchUsers";
+import PaginatedList, { ProductCard, UserCard } from "./components/FetchUsers";
 import Tooltip from "./components/Tooltip";
 
 function App() {
@@ -28,7 +28,8 @@ function App() {
       <Squares />
       <Accordion2 />
       <Multilingualism />
-      <FetchUsers />
+      <PaginatedList entity="users" entityCard={UserCard} />
+      <PaginatedList entity="products" entityCard={ProductCard} />
       <Tooltip />
     </>
   );
