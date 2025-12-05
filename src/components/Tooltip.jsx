@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import styles from "../styles/tooltip.module.css";
 
+const squares = [
+  { id: 1, color: "lightgreen" },
+  { id: 2, color: "brown" },
+  { id: 3, color: "blue" },
+  { id: 4, color: "purple" },
+  { id: 5, color: "burlywood" },
+];
+
 export default function Tooltip() {
   const [activeSquare, setActiveSquare] = useState();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  const squares = [
-    { id: 1, color: "lightgreen" },
-    { id: 2, color: "brown" },
-    { id: 3, color: "blue" },
-    { id: 4, color: "purple" },
-    { id: 5, color: "burlywood" },
-  ];
   console.log(mousePosition);
   console.log(activeSquare);
 

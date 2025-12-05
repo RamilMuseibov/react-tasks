@@ -40,10 +40,12 @@ export default function Accordion2() {
 
   console.log(activeSection);
 
-  function activeSectionFunc(id) {
-    !activeSection.includes(id)
-      ? setActiveSection([...activeSection, id])
-      : setActiveSection(activeSection.filter((item) => item !== id));
+  function toggleSection(id) {
+    setActiveSection(
+      activeSection.includes(id)
+        ? activeSection.filter((item) => item !== id)
+        : [...activeSection, id]
+    );
   }
 
   return (
@@ -53,10 +55,7 @@ export default function Accordion2() {
       <div className={styles["main"]}>
         {sections.map((section) => (
           <div key={section.id}>
-            <button
-              onClick={() => activeSectionFunc(section.id)}
-              className={styles["btn"]}
-            >
+            <button onClick={() => toggleSection(section.id)} className={styles["btn"]}>
               <div
                 className={`${styles["title-arrow-container"]} ${
                   activeSection.includes(section.id) ? styles["open"] : ""

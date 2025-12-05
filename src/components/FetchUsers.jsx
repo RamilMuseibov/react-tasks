@@ -35,59 +35,45 @@ const arrowNext = (
   </svg>
 );
 
-export default function FetchUsers() {
+export default function PaginatedList(props) {
+  const entity = props.entity;
+  const EntityCard = props.entityCard;
+
   const [isLoading, setIsLoading] = useState(false);
-  const [users, setUsers] = useState([]);
-  const [page, setPage] = useState({});
+  const [data, setData] = useState([]);
+  const [total, setTotal] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [limit, setLimit] = useState(5);
   const [skip, setSkip] = useState(0);
 
   function fetcher(skip, limit) {
-    fetch(`https://dummyjson.com/users?limit=${limit}&skip=${skip}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setUsers(data.users);
-        setPage({
-          total: data.total,
-        });
-      });
-  }
-  const pages = Math.ceil(page?.total / limit);
-
-  function showDownload() {
     setIsLoading(true);
 
-    setTimeout(() => {
-      fetcher(skip, limit);
-
-      setIsLoading(false);
-    }, 1000);
+    fetch(`https://dummyjson.com/${entity}?limit=${limit}&skip=${skip}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setIsLoading(false);
+        setData(data[entity]);
+        setTotal(data.total);
+      });
   }
+  const pages = Math.ceil(total / limit);
 
-  function changePage(rewind) {
-    const newSkip = skip + (rewind === "Next" ? limit : -limit);
-    const newPage = currentPage + (rewind === "Next" ? 1 : -1);
+  function nextPage() {
+    const newSkip = skip + limit;
     setSkip(newSkip);
-    setCurrentPage(newPage);
     fetcher(newSkip, limit);
+    setCurrentPage(currentPage + 1);
   }
 
-  // function nextUsers() {
-  //   const newSkip = skip + limit;
-  //   setSkip(newSkip);
-  //   fetcher(newSkip, limit);
-  //   setCurrentPage(currentPage + 1);
-  // }
+  function prevPage() {
+    const newSkip = skip - limit;
+    setSkip(newSkip);
+    fetcher(newSkip, limit);
+    setCurrentPage(currentPage - 1);
+  }
 
-  // function prevUsers() {
-  //   const newSkip = skip - limit;
-  //   setSkip(newSkip);
-  //   fetcher(newSkip, limit);
-  //   setCurrentPage(currentPage - 1);
-  // }
-
-  function limitUsers(value) {
+  function setPageSize(value) {
     const newLimit = +value;
     setLimit(newLimit);
     setSkip(0);
@@ -95,15 +81,14 @@ export default function FetchUsers() {
     fetcher(0, newLimit);
   }
 
-  console.log(users);
-
   return (
     <div className={styles["fetch-users"]}>
       <div className={styles["select-container"]}>
         <h1>FetchUsers</h1>
         <select
+          disabled={isLoading}
           value={limit}
-          onChange={(e) => limitUsers(e.target.value)}
+          onChange={(e) => setPageSize(e.target.value)}
           className={styles["select"]}
         >
           <option value={5}>5</option>
@@ -113,26 +98,24 @@ export default function FetchUsers() {
         </select>
       </div>
       <div className={styles["main"]}>
-        <button onClick={showDownload} className={styles["btn"]} disabled={isLoading}>
-          {isLoading === true ? "Downloading..." : "Request users"}
+        <button
+          onClick={() => fetcher(skip, limit)}
+          className={styles["btn"]}
+          disabled={isLoading}
+        >
+          {isLoading ? "Downloading..." : "Request users"}
         </button>
         <div className={styles["users-card-container"]}>
-          {users.map((user) => (
-            <div key={user.id} className={styles["users-card"]}>
-              <img src={user.image} />
-              <div className={styles["users-fullname-container"]}>
-                <div className={styles["users-firstname"]}>{user.firstName}</div>
-                <div className={styles["users-lastname"]}>{user.lastName}</div>
-              </div>
-            </div>
+          {data.map((item) => (
+            <EntityCard key={item.id} data={item} />
           ))}
         </div>
         <div
-          className={styles[users.length === 0 ? "hidden" : "pagination_btn-container"]}
+          className={styles[data.length === 0 ? "hidden" : "pagination_btn-container"]}
         >
           <button
-            disabled={skip === 0 ? true : false}
-            onClick={() => changePage("Prev")}
+            disabled={skip === 0 || isLoading}
+            onClick={prevPage}
             className={styles["pagination_btn-prev"]}
           >
             {arrowPrev}Prev
@@ -141,13 +124,40 @@ export default function FetchUsers() {
             {currentPage} of {pages}
           </div>
           <button
-            disabled={skip + limit >= page.total ? true : false}
-            onClick={() => changePage("Next")}
+            disabled={skip + limit >= total || isLoading}
+            onClick={nextPage}
             className={styles["pagination_btn-next"]}
           >
             Next{arrowNext}
           </button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+export function UserCard(props) {
+  const user = props.data;
+
+  return (
+    <div key={user.id} className={styles["users-card"]}>
+      <img src={user.image} />
+      <div className={styles["users-fullname-container"]}>
+        <div className={styles["users-firstname"]}>{user.firstName}</div>
+        <div className={styles["users-lastname"]}>{user.lastName}</div>
+      </div>
+    </div>
+  );
+}
+
+export function ProductCard(props) {
+  const user = props.data;
+
+  return (
+    <div key={user.id} className={styles["users-card"]}>
+      <img src={user.images[0]} />
+      <div className={styles["users-fullname-container"]}>
+        <div className={styles["users-firstname"]}>{user.title}</div>
       </div>
     </div>
   );
