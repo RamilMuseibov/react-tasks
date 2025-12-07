@@ -10,7 +10,7 @@ export default function UserProfile() {
   return (
     <div className="app">
       <UserProfile
-        user={{
+        user={{ 
           name: "Анна Иванова",
           age: 28,
           profession: "Frontend разработчик",
