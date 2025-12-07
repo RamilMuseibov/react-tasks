@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import styles from "../styles/slider.module.css";
-import image_1 from "../images/174746-godzho_satoru-satoru_godzyo-dzhiu_dzhitsu_kajsen-anime-rukav-3840x2160.jpg";
-import image_2 from "../images/milky-way-3840x2160-colorful-stars-astrophotography-27104.jpg";
-import image_3 from "../images/pngtree-city-__neon-background-picture-image_2264819.jpg";
-import image_4 from "../images/165919_amegakure_from_naruto_shippuden_in_a_cyberpunk_world_1920x1080.jpg";
-import image_5 from "../images/Screenshot_20231123_143453_VK.jpg";
-import image_6 from "../images/Screenshot_20231123_143502_VK.jpg";
+import styles from "../../styles/slider.module.css";
+import image_1 from "../../images/174746-godzho_satoru-satoru_godzyo-dzhiu_dzhitsu_kajsen-anime-rukav-3840x2160.jpg";
+import image_2 from "../../images/milky-way-3840x2160-colorful-stars-astrophotography-27104.jpg";
+import image_3 from "../../images/pngtree-city-__neon-background-picture-image_2264819.jpg";
+import image_4 from "../../images/165919_amegakure_from_naruto_shippuden_in_a_cyberpunk_world_1920x1080.jpg";
+import image_5 from "../../images/Screenshot_20231123_143453_VK.jpg";
+import image_6 from "../../images/Screenshot_20231123_143502_VK.jpg";
 
 const images = [
   { id: 1, src: image_1 },

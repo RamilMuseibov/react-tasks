@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/fetch-users.module.css";
+import styles from "../../styles/fetch-users.module.css";
 
 const arrowPrev = (
   <svg
@@ -151,13 +151,13 @@ export function UserCard(props) {
 }
 
 export function ProductCard(props) {
-  const user = props.data;
+  const product = props.data;
 
   return (
-    <div key={user.id} className={styles["users-card"]}>
-      <img src={user.images[0]} />
+    <div key={product.id} className={styles["users-card"]}>
+      <img src={product.images[0]} />
       <div className={styles["users-fullname-container"]}>
-        <div className={styles["users-firstname"]}>{user.title}</div>
+        <div className={styles["users-firstname"]}>{product.title}</div>
       </div>
     </div>
   );

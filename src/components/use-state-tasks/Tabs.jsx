@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/tabs.module.css";
+import styles from "../../styles/tabs.module.css";
 
 const content = {
   Description: <p>Вкладка с Description</p>,

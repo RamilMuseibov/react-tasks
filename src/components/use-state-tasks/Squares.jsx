@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/squares.module.css";
+import styles from "../../styles/squares.module.css";
 
 function generatedRandomColor() {
   return `#${Math.random().toString(16).substring(2, 8)}`;

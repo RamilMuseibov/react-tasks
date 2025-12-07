@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/converter.module.css";
+import styles from "../../styles/converter.module.css";
 
 const courseDollar = 80.55; //COURSE_DOLLAR
 const coursePounds = 105.18;

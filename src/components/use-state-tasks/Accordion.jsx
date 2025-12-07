@@ -1,25 +1,9 @@
 import React, { useState } from "react";
-import styles from "../styles/accordion.module.css";
+import styles from "../../styles/accordion.module.css";
 
-const sections = [
-  {
-    id: 1,
-    title: "First item",
-    subtitle: "Click the accordion button to see a different style when expanded.",
-  },
-  {
-    id: 2,
-    title: "Second item",
-    subtitle: "The trigger background changes to teal with white text when expanded.",
-  },
-  {
-    id: 3,
-    title: "Third item",
-    subtitle: "You can use any style props with the _open pseudo selector.",
-  },
-];
 
-export default function Accordion() {
+
+export default function Accordion({ sections }) {
   const [activeSection, setActiveSection] = useState(null);
 
   console.log(activeSection);
@@ -54,3 +38,24 @@ export default function Accordion() {
     </div>
   );
 }
+
+// function useState(inialState) {
+//   let state = inialState;
+
+//   function setState(newValue) {
+//     state = newValue;
+//   }
+
+//   return [state, setState];
+// }
+
+// const arr = [1, 2, 3, 4, 5];
+
+// const [arr1, arr2, ...arr3] = arr;
+
+// const firstValue = arr[0];
+// const secondValue = arr[1];
+
+// const user = { name: "Vasya", age: 15, city: "Moscow", index: 666000 };
+
+// const { name: userName, age, ...data } = user;
