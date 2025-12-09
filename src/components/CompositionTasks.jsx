@@ -10,4 +10,4 @@ function CompositionTasks() {
   );
 }
 
-export default App;
+export default CompositionTasks;
