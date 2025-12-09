@@ -10,7 +10,7 @@ export default function UserProfile() {
   return (
     <div className="app">
       <UserProfile
-        user={{ 
+        user={{
           name: "Анна Иванова",
           age: 28,
           profession: "Frontend разработчик",
@@ -77,46 +77,46 @@ export default function UserProfile() {
     );
   }
 }
-function map(array) {
-  const newArr = [];
+// function map(array) {
+//   const newArr = [];
 
-  function mapper(item) {
-    return item ** 2;
-  }
+//   function mapper(item) {
+//     return item ** 2;
+//   }
 
-  let i = 0;
-  while (i < array.length) {
-    newArr.push(mapper(array[i]));
-    i++;
-  }
+//   let i = 0;
+//   while (i < array.length) {
+//     newArr.push(mapper(array[i]));
+//     i++;
+//   }
 
-  return newArr;
-}
+//   return newArr;
+// }
 
-const arr = [1, 2, 3, 4, 5];
-const arr1 = [6, 7, 9, 3, 3, 4, 9, 1];
-const arr2 = [5, 7, 9];
+// const arr = [1, 2, 3, 4, 5];
+// const arr1 = [6, 7, 9, 3, 3, 4, 9, 1];
+// const arr2 = [5, 7, 9];
 
-const mapper = (item) => {
-  return item + 5;
-};
+// const mapper = (item) => {
+//   return item + 5;
+// };
 
-arr.map(() => {});
+// arr.map(() => {});
 
-const newArr = map(arr, mapper);
+// const newArr = map(arr, mapper);
 
-() => {};
+// () => {};
 
-const newArr1 = map(arr1, function mapper(item) {
-  return item + 5;
-});
-const newArr3 = map(arr2, function mapper(item) {
-  return Math.sqrt(item);
-});
+// const newArr1 = map(arr1, function mapper(item) {
+//   return item + 5;
+// });
+// const newArr3 = map(arr2, function mapper(item) {
+//   return Math.sqrt(item);
+// });
 
-function pifagor(a, b) {
-  const c = Math.sqrt(a ** 2 + b ** 2);
+// function pifagor(a, b) {
+//   const c = Math.sqrt(a ** 2 + b ** 2);
 
-  return c;
-}
-pifagor(a, b);
+//   return c;
+// }
+// pifagor(a, b);
