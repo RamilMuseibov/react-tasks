@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// Локальные данные БЕЗ внешних запросов
 const products = [
   {
     id: 1,
@@ -31,7 +30,6 @@ const products = [
   },
 ];
 
-// Генерация локальных цветных блоков вместо изображений
 const generateColor = (id) => {
   const colors = [
     "#FF6B6B",
@@ -192,7 +190,6 @@ export default function ProductCards() {
         )
       : 0;
 
-  // Обработчик для кнопки
   const handleAddToCart = (productName) => {
     alert(`Товар "${productName}" добавлен в корзину!`);
   };
