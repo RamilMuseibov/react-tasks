@@ -46,8 +46,6 @@ const generateColor = (id) => {
   return colors[id % colors.length];
 };
 
-const categories = ["Все", "Электроника", "Книги", "Одежда"];
-
 const styles = {
   app: {
     fontFamily: "Arial, sans-serif",
@@ -63,8 +61,7 @@ const styles = {
   },
   button: {
     padding: "10px 15px",
-    border: "1px solid #ccc",
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "#acaed1ff",
     cursor: "pointer",
     borderRadius: "5px",
     transition: "all 0.3s",
@@ -153,7 +150,7 @@ const styles = {
   summary: {
     marginTop: "30px",
     padding: "20px",
-    backgroundColor: "#f8f9fa",
+    backgroundColor: "#aebac5ff",
     borderRadius: "8px",
     border: "1px solid #dee2e6",
   },
@@ -198,113 +195,141 @@ export default function ProductCards() {
     <div style={styles.app}>
       <h1>🛒 Магазин техники и книг</h1>
 
-      <div style={styles.categoryFilter}>
-        {categories.map((category) => (
-          <button
-            key={category}
-            style={{
-              ...styles.button,
-              ...(selectedCategory === category ? styles.activeButton : {}),
-            }}
-            onClick={() => setSelectedCategory(category)}
-            onMouseEnter={(e) => {
-              if (selectedCategory !== category) {
-                e.target.style.backgroundColor = "#e0e0e0";
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (selectedCategory !== category) {
-                e.target.style.backgroundColor = "#f0f0f0";
-              }
-            }}
-          >
-            {category}
-          </button>
-        ))}
+      <CategoryFilter
+        categories={["Все", "Электроника", "Книги", "Одежда"]}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
+
+      <ProductsGrid filteredProducts={filteredProducts} onAddToCart={handleAddToCart} />
+
+      <Summary filteredProducts={filteredProducts} averagePrice={averagePrice} />
+    </div>
+  );
+}
+
+function CategoryFilter({ categories, selectedCategory, setSelectedCategory }) {
+  return (
+    <div style={styles.categoryFilter}>
+      {categories.map((category) => (
+        <button
+          key={category}
+          style={{
+            ...styles.button,
+            ...(selectedCategory === category ? styles.activeButton : {}),
+          }}
+          onClick={() => setSelectedCategory(category)}
+          onMouseEnter={(e) => {
+            if (selectedCategory !== category) {
+              e.target.style.backgroundColor = "#e0e0e0";
+            }
+          }}
+          onMouseLeave={(e) => {
+            if (selectedCategory !== category) {
+              e.target.style.backgroundColor = "#f0f0f0";
+            }
+          }}
+        >
+          {category}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function ProductCard({ product, onAddToCart }) {
+  const bgColor = generateColor(product.id);
+
+  return (
+    <div key={product.id} style={styles.productCard}>
+      <div
+        style={{
+          ...styles.productImage,
+          backgroundColor: bgColor,
+          background: `linear-gradient(135deg, ${bgColor} 0%, ${bgColor}80 100%)`,
+        }}
+      >
+        <div style={{ textAlign: "center", padding: "20px" }}>
+          <div style={{ fontSize: "36px", marginBottom: "10px" }}>
+            {product.category === "Электроника"
+              ? "💻"
+              : product.category === "Книги"
+              ? "📚"
+              : "🛒"}
+          </div>
+          <div>{product.category}</div>
+        </div>
+        {!product.inStock && <div style={styles.outOfStock}>Нет в наличии</div>}
       </div>
 
-      <div style={styles.productsGrid}>
-        {filteredProducts.map((product) => {
-          const bgColor = generateColor(product.id);
+      <div style={styles.productInfo}>
+        <h3 style={styles.productName}>{product.name}</h3>
+        <p style={styles.category}>Категория: {product.category}</p>
+        <p style={styles.description}>{product.description}</p>
 
-          return (
-            <div key={product.id} style={styles.productCard}>
-              <div
-                style={{
-                  ...styles.productImage,
-                  backgroundColor: bgColor,
-                  background: `linear-gradient(135deg, ${bgColor} 0%, ${bgColor}80 100%)`,
-                }}
-              >
-                <div style={{ textAlign: "center", padding: "20px" }}>
-                  <div style={{ fontSize: "36px", marginBottom: "10px" }}>
-                    {product.category === "Электроника"
-                      ? "💻"
-                      : product.category === "Книги"
-                      ? "📚"
-                      : "🛒"}
-                  </div>
-                  <div>{product.category}</div>
-                </div>
-                {!product.inStock && <div style={styles.outOfStock}>Нет в наличии</div>}
-              </div>
+        <div style={styles.productFooter}>
+          <div style={styles.rating}>
+            {"★".repeat(Math.floor(product.rating))}
+            <span style={styles.ratingNumber}>{product.rating}</span>
+          </div>
+          <div style={styles.price}>{product.price.toLocaleString()} ₽</div>
+        </div>
 
-              <div style={styles.productInfo}>
-                <h3 style={styles.productName}>{product.name}</h3>
-                <p style={styles.category}>Категория: {product.category}</p>
-                <p style={styles.description}>{product.description}</p>
-
-                <div style={styles.productFooter}>
-                  <div style={styles.rating}>
-                    {"★".repeat(Math.floor(product.rating))}
-                    <span style={styles.ratingNumber}>{product.rating}</span>
-                  </div>
-                  <div style={styles.price}>{product.price.toLocaleString()} ₽</div>
-                </div>
-
-                <button
-                  style={{
-                    ...styles.buyButton,
-                    ...(!product.inStock ? styles.disabledButton : {}),
-                  }}
-                  disabled={!product.inStock}
-                  onClick={() => handleAddToCart(product.name)}
-                  onMouseEnter={(e) => {
-                    if (product.inStock) {
-                      e.target.style.backgroundColor = "#218838";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (product.inStock) {
-                      e.target.style.backgroundColor = "#28a745";
-                    }
-                  }}
-                >
-                  {product.inStock ? "🛒 Добавить в корзину" : "🚫 Товар закончился"}
-                </button>
-              </div>
-            </div>
-          );
-        })}
+        <button
+          style={{
+            ...styles.buyButton,
+            ...(!product.inStock ? styles.disabledButton : {}),
+          }}
+          disabled={!product.inStock}
+          onClick={() => onAddToCart(product.name)}
+          onMouseEnter={(e) => {
+            if (product.inStock) {
+              e.target.style.backgroundColor = "#218838";
+            }
+          }}
+          onMouseLeave={(e) => {
+            if (product.inStock) {
+              e.target.style.backgroundColor = "#28a745";
+            }
+          }}
+        >
+          {product.inStock ? "🛒 Добавить в корзину" : "🚫 Товар закончился"}
+        </button>
       </div>
+    </div>
+  );
+}
 
-      <div style={styles.summary}>
-        <h3>📊 Статистика</h3>
-        <p>
-          <strong>Итого товаров:</strong> {filteredProducts.length}
+function ProductsGrid({ filteredProducts, onAddToCart }) {
+  return (
+    <div style={styles.productsGrid}>
+      {filteredProducts.map((product) => {
+        return (
+          <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
+        );
+      })}
+    </div>
+  );
+}
+
+function Summary({ filteredProducts, averagePrice }) {
+  return (
+    <div style={styles.summary}>
+      <h3>📊 Статистика</h3>
+      <p>
+        <strong>Итого товаров:</strong> {filteredProducts.length}
+      </p>
+      <p>
+        <strong>В наличии:</strong> {filteredProducts.filter((p) => p.inStock).length}
+      </p>
+      <p>
+        <strong>Средняя цена:</strong> {averagePrice.toLocaleString()} ₽
+      </p>
+      {filteredProducts.length === 0 && (
+        <p style={{ color: "#dc3545", fontWeight: "bold" }}>
+          🚫 Товаров в выбранной категории не найдено
         </p>
-        <p>
-          <strong>В наличии:</strong> {filteredProducts.filter((p) => p.inStock).length}
-        </p>
-        <p>
-          <strong>Средняя цена:</strong> {averagePrice.toLocaleString()} ₽
-        </p>
-        {filteredProducts.length === 0 && (
-          <p style={{ color: "#dc3545", fontWeight: "bold" }}>
-            🚫 Товаров в выбранной категории не найдено
-          </p>
-        )}
-      </div>
+      )}
     </div>
   );
 }
