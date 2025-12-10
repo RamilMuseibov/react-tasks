@@ -71,90 +71,133 @@ export default function Taskbar() {
     <div className="app">
       <h1>Управление задачами</h1>
 
-      <div className="controls">
-        <div className="filters">
-          <button onClick={() => setFilter("all")}>Все ({tasks.length})</button>
-          <button onClick={() => setFilter("active")}>
-            Активные ({tasks.filter((t) => !t.completed).length})
-          </button>
-          <button onClick={() => setFilter("completed")}>
-            Завершенные ({tasks.filter((t) => t.completed).length})
-          </button>
-        </div>
+      <Controls tasks={tasks} setFilter={setFilter} setSortBy={setSortBy} />
+      <TaskForm addTask={addTask} />
 
-        <div className="sort">
-          <label>Сортировать по:</label>
-          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-            <option value="priority">Приоритету</option>
-            <option value="name">Названию</option>
-          </select>
-        </div>
-      </div>
+      <TaskList
+        filteredTasks={filteredTasks}
+        toggleTask={toggleTask}
+        deleteTask={deleteTask}
+      />
 
-      <div className="task-form">
-        <input type="text" id="newTask" placeholder="Новая задача..." />
-        <select id="priority">
-          <option value="high">Высокий</option>
-          <option value="medium">Средний</option>
-          <option value="low">Низкий</option>
-        </select>
-        <button
-          onClick={() => {
-            const input = document.getElementById("newTask");
-            const select = document.getElementById("priority");
-            if (input.value.trim()) {
-              addTask(input.value.trim(), select.value);
-              input.value = "";
-            }
-          }}
-        >
-          Добавить задачу
+      <Stats stats={stats} />
+    </div>
+  );
+}
+
+function Controls({ tasks, sortBy, setFilter, setSortBy }) {
+  return (
+    <div className="controls">
+      <div className="filters">
+        <button onClick={() => setFilter("all")}>Все ({tasks.length})</button>
+        <button onClick={() => setFilter("active")}>
+          Активные ({tasks.filter((t) => !t.completed).length})
+        </button>
+        <button onClick={() => setFilter("completed")}>
+          Завершенные ({tasks.filter((t) => t.completed).length})
         </button>
       </div>
 
-      <div className="tasks-list">
-        {filteredTasks.map((task) => (
-          <div
-            key={task.id}
-            className={`task-item ${task.priority} ${task.completed ? "completed" : ""}`}
-          >
-            <input
-              type="checkbox"
-              checked={task.completed}
-              onChange={() => toggleTask(task.id)}
-            />
-            <span className="task-text">{task.text}</span>
-            <span className={`priority-badge ${task.priority}`}>
-              {task.priority === "high"
-                ? "Высокий"
-                : task.priority === "medium"
-                ? "Средний"
-                : "Низкий"}
-            </span>
-            <button onClick={() => deleteTask(task.id)} className="delete-btn">
-              Удалить
-            </button>
-          </div>
-        ))}
-      </div>
-
-      <div className="stats">
-        <div className="stat-card">
-          <h3>Всего задач</h3>
-          <p className="stat-number">{stats.total}</p>
-        </div>
-        <div className="stat-card">
-          <h3>Выполнено</h3>
-          <p className="stat-number">{stats.completed}</p>
-          <p className="stat-percent">
-            {Math.round((stats.completed / stats.total) * 100)}%
-          </p>
-        </div>
-        <div className="stat-card">
-          <h3>Высокий приоритет</h3>
-          <p className="stat-number">{stats.highPriority}</p>
-        </div>
+      <div className="sort">
+        <label>Сортировать по:</label>
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          <option value="priority">Приоритету</option>
+          <option value="name">Названию</option>
+        </select>
       </div>
     </div>
+  );
+}
+
+function TaskForm({ addTask }) {
+  return (
+    <div className="task-form">
+      <input type="text" id="newTask" placeholder="Новая задача..." />
+      <select id="priority">
+        <option value="high">Высокий</option>
+        <option value="medium">Средний</option>
+        <option value="low">Низкий</option>
+      </select>
+      <button
+        onClick={() => {
+          const input = document.getElementById("newTask");
+          const select = document.getElementById("priority");
+          if (input.value.trim()) {
+            addTask(input.value.trim(), select.value);
+            input.value = "";
+          }
+        }}
+      >
+        Добавить задачу
+      </button>
+    </div>
+  );
+}
+
+function TaskList({ filteredTasks, toggleTask, deleteTask }) {
+  return (
+    <div className="tasks-list">
+      {filteredTasks.map((task) => (
+        <TaskItem
+          key={task.id}
+          task={task}
+          toggleTask={toggleTask}
+          deleteTask={deleteTask}
+        />
+      ))}
+    </div>
+  );
+}
+
+function TaskItem({ toggleTask, deleteTask, task }) {
+  return (
+    <div className={`task-item ${task.priority} ${task.completed ? "completed" : ""}`}>
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={() => toggleTask(task.id)}
+      />
+      <span className="task-text">{task.text}</span>
+      <span className={`priority-badge ${task.priority}`}>
+        {task.priority === "high"
+          ? "Высокий"
+          : task.priority === "medium"
+          ? "Средний"
+          : "Низкий"}
+      </span>
+      <button onClick={() => deleteTask(task.id)} className="delete-btn">
+        Удалить
+      </button>
+    </div>
+  );
+}
+
+function Stats({ stats }) {
+  return (
+    <div className="stats">
+      <StatCard stats={stats} />
+    </div>
+  );
+}
+
+function StatCard({ stats }) {
+  return (
+    <>
+      <div className="stat-card">
+        <h3>Всего задач</h3>
+        <p className="stat-number">{stats.total}</p>
+      </div>
+      <div className="stat-card">
+        <h3>Выполнено</h3>
+        <p className="stat-number">{stats.completed}</p>
+        <p className="stat-percent">
+          {Math.round((stats.completed / stats.total) * 100)}%
+        </p>
+      </div>
+      <div className="stat-card">
+        <h3>Высокий приоритет</h3>
+        <p className="stat-number">{stats.highPriority}</p>
+      </div>
+    </>
   );
 }
