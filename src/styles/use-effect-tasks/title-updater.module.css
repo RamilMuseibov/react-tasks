@@ -1,0 +1,6 @@
+.title-updater {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
