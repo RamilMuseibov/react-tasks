@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/downloader.module.css";
+import styles from "../../styles/use-state-tasks/downloader.module.css";
 
 export default function Downloader() {
   const [isLoading, setIsLoading] = useState(false);

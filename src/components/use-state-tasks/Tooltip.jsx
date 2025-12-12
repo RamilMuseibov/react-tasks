@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/tooltip.module.css";
+import styles from "../../styles/use-state-tasks/tooltip.module.css";
 
 const squares = [
   { id: 1, color: "lightgreen" },

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/fetch-users.module.css";
+import styles from "../../styles/use-state-tasks/fetch-users.module.css";
 
 const arrowPrev = (
   <svg
@@ -84,7 +84,7 @@ export default function PaginatedList(props) {
   return (
     <div className={styles["fetch-users"]}>
       <div className={styles["select-container"]}>
-        <h1>FetchUsers</h1>
+        <h1>PaginatedList</h1>
         <select
           disabled={isLoading}
           value={limit}

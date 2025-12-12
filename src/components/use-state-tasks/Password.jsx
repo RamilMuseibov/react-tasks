@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/password.module.css";
+import styles from "../../styles/use-state-tasks/password.module.css";
 
 const openEye = (
   <svg

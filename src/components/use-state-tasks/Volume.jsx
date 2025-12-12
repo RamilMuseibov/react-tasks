@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/volume.module.css";
+import styles from "../../styles/use-state-tasks/volume.module.css";
 
 export default function Volume() {
   const [volume, setVolume] = useState(50);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/multilingualism.module.css";
+import styles from "../../styles/use-state-tasks/multilingualism.module.css";
 
 const languges = {
   ru: { value: "Русский", greeting: "Привет дружище!", title: "Мультиязычность" },

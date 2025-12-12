@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/slider.module.css";
+import styles from "../../styles/use-state-tasks/slider.module.css";
 import image_1 from "../../images/174746-godzho_satoru-satoru_godzyo-dzhiu_dzhitsu_kajsen-anime-rukav-3840x2160.jpg";
 import image_2 from "../../images/milky-way-3840x2160-colorful-stars-astrophotography-27104.jpg";
 import image_3 from "../../images/pngtree-city-__neon-background-picture-image_2264819.jpg";

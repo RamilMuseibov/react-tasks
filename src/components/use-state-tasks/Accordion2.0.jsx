@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/accordion2.0.module.css";
+import styles from "../../styles/use-state-tasks/accordion2.0.module.css";
 
 const arrowDown = (
   <svg
