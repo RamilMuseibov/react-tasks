@@ -14,6 +14,8 @@ export default function UserList() {
     fetch("https://dummyjson.com/users?limit=10")
       .then((res) => res.json())
       .then((data) => {
+        console.log("Данные получены");
+
         setUsers(data.users);
         setIsLoading(false);
       });
@@ -22,7 +24,7 @@ export default function UserList() {
   }, []);
 
   return (
-    <div className={styles["fetch-users"]}>
+    <div className={styles["user-list"]}>
       <h1>UserList</h1>
 
       <div className={styles["users-card-container"]}>
