@@ -12,7 +12,6 @@ import Accordion2 from "./use-state-tasks/Accordion2.0";
 import Multilingualism from "./use-state-tasks/Multilingualism";
 import PaginatedList, { ProductCard, UserCard } from "./use-state-tasks/PaginatedList";
 import Tooltip from "./use-state-tasks/Tooltip";
-import App from "./CompositionTasks";
 
 export default function UseStateTasks() {
   return (
@@ -66,7 +65,6 @@ export default function UseStateTasks() {
       <PaginatedList entity="users" entityCard={UserCard} />
       <PaginatedList entity="products" entityCard={ProductCard} />
       <Tooltip />
-
     </>
   );
 }
