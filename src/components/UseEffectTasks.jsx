@@ -1,12 +1,14 @@
 import React from "react";
 import UserList from "./use-effect-tasks/UserList";
+import TitleUpdater from "./use-effect-tasks/TitleUpdater";
+import TrackingCounter from "./use-effect-tasks/TrackingCounter";
 
 export default function UseEffectTasks() {
-  console.log("еще одна хуйня");
-
   return (
     <>
-      <UserList />
+      {/* <UserList /> */}
+      {/* <TitleUpdater /> */}
+      <TrackingCounter />
     </>
   );
 }
