@@ -1,0 +1,10 @@
+.tracking-counter {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.btn {
+  width: 50px;
+}
