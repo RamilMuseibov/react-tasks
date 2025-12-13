@@ -4,3 +4,7 @@
   flex-direction: column;
   gap: 2rem;
 }
+
+.input {
+  width: 200px;
+}
