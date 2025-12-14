@@ -9,10 +9,10 @@ export default function UseEffectTasks() {
   return (
     <>
       {/* <UserList /> */}
-      {/* <TitleUpdater /> */}
+      <TitleUpdater />
       {/* <TrackingCounter /> */}
       {/* <ProductFilter /> */}
-      <CurrentTime />
+      {/* <CurrentTime /> */}
     </>
   );
 }
