@@ -5,10 +5,18 @@ export default function CurrentTime() {
   const [times, setTimes] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
-    setInterval(() => {
+    const id = setInterval(() => {
       setTimes(new Date().toLocaleTimeString());
     }, 1000);
+
+    return () => {
+      clearInterval(id);
+    };
   }, []);
+
+  // setTimeout(() => {
+  //   setTimes(new Date().toLocaleTimeString());
+  // }, 1000);
 
   return (
     <div className={styles["current-time"]}>

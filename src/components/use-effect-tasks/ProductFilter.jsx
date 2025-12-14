@@ -7,10 +7,17 @@ export default function ProductFilter() {
   const products = ["Strawberry", "Cake", "Kiwi", "Mango", "Apple"];
 
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+
+  console.log(products[1].includes(""));
 
   useEffect(() => {
-    setFilteredProducts(products);
-  }, []);
+    setFilteredProducts(
+      filter(products, (product) =>
+        product.toLowerCase().includes(inputValue.toLowerCase())
+      )
+    );
+  }, [inputValue]);
 
   console.log(filteredProducts);
 
@@ -19,13 +26,7 @@ export default function ProductFilter() {
       <h1>ProductFilter</h1>
 
       <input
-        onChange={(e) =>
-          setFilteredProducts(
-            products.filter((product) =>
-              product.toLowerCase().includes(e.target.value.toLowerCase())
-            )
-          )
-        }
+        onChange={(e) => setInputValue(e.target.value)}
         className={styles["search-input"]}
         type="text"
         placeholder="Enter the product name"
@@ -41,4 +42,16 @@ export default function ProductFilter() {
       </div>
     </div>
   );
+}
+
+function filter(arr, cb) {
+  const res = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (cb(arr[i], i, arr)) {
+      res.push(arr[i]);
+    }
+  }
+
+  return res;
 }
