@@ -1,0 +1,28 @@
+.request-comments {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.posts-container {
+  cursor: pointer;
+  margin: 0;
+  padding: 10px;
+  background-color: transparent;
+  align-items: start;
+  display: flex;
+  border: 1px solid #afb9b6;
+  border-radius: 10px;
+  flex-direction: column;
+  width: 600px;
+}
+
+.post-subtitle {
+  font-size: 15px;
+  text-align: start;
+}
+
+.comment-body {
+  font-size: 15px;
+}
