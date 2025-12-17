@@ -4,15 +4,17 @@ import TitleUpdater from "./use-effect-tasks/TitleUpdater";
 import TrackingCounter from "./use-effect-tasks/TrackingCounter";
 import ProductFilter from "./use-effect-tasks/ProductFilter";
 import CurrentTime from "./use-effect-tasks/CurrentTime";
+import RequestComments from "./use-effect-tasks/RequestComments";
 
 export default function UseEffectTasks() {
   return (
     <>
       {/* <UserList /> */}
-      <TitleUpdater />
+      {/* <TitleUpdater /> */}
       {/* <TrackingCounter /> */}
       {/* <ProductFilter /> */}
       {/* <CurrentTime /> */}
+      <RequestComments />
     </>
   );
 }
