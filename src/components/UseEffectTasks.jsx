@@ -5,6 +5,7 @@ import TrackingCounter from "./use-effect-tasks/TrackingCounter";
 import ProductFilter from "./use-effect-tasks/ProductFilter";
 import CurrentTime from "./use-effect-tasks/CurrentTime";
 import RequestComments from "./use-effect-tasks/RequestComments";
+import RequestComments2 from "./use-effect-tasks/RequestComments2";
 
 export default function UseEffectTasks() {
   return (
@@ -14,7 +15,8 @@ export default function UseEffectTasks() {
       {/* <TrackingCounter /> */}
       {/* <ProductFilter /> */}
       {/* <CurrentTime /> */}
-      <RequestComments />
+      {/* <RequestComments /> */}
+      <RequestComments2 />
     </>
   );
 }
