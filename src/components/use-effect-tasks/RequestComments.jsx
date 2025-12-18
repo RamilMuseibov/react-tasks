@@ -4,9 +4,9 @@ import styles from "../../styles/use-effect-tasks/request-comments.module.css";
 export default function RequestComments() {
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
-  const [isActive, setIsActive] = useState(null);
+  const [activePostId, setActivePostId] = useState(null);
 
-  console.log(isActive);
+  console.log(activePostId);
 
   useEffect(() => {
     fetch(`https://dummyjson.com/posts`)
@@ -17,15 +17,15 @@ export default function RequestComments() {
   console.log(posts);
 
   useEffect(() => {
-    if (isActive === null) {
+    if (activePostId === null) {
       setComments([]);
       return;
     }
 
-    fetch(`https://dummyjson.com/comments/post/${isActive}`)
+    fetch(`https://dummyjson.com/comments/post/${activePostId}`)
       .then((res) => res.json())
       .then((data) => setComments(data.comments));
-  }, [isActive]);
+  }, [activePostId]);
 
   return (
     <div className={styles["request-comments"]}>
@@ -33,12 +33,12 @@ export default function RequestComments() {
 
       {posts.map((post) => {
         return (
-          <RenderPosts
+          <Posts
             key={post.id}
             comments={comments}
-            isActive={isActive}
+            activePostId={activePostId}
             post={post}
-            setIsActive={setIsActive}
+            setActivePostId={setActivePostId}
           />
         );
       })}
@@ -46,11 +46,11 @@ export default function RequestComments() {
   );
 }
 
-function RenderPosts({ isActive, post, setIsActive, comments }) {
+function Posts({ activePostId, post, setActivePostId, comments }) {
   return (
     <button
       onClick={() => {
-        setIsActive(isActive === post.id ? null : post.id);
+        setActivePostId(activePostId === post.id ? null : post.id);
       }}
       className={styles["posts-container"]}
     >
@@ -58,24 +58,24 @@ function RenderPosts({ isActive, post, setIsActive, comments }) {
         <h2 className={styles["post-title"]}>{post.title}</h2>
       </div>
       <p className={styles["post-subtitle"]}>{post.body}</p>
-      {isActive === post.id && <RenderComms isActive={isActive} comments={comments} />}
+      {activePostId === post.id && (
+        <Comments activePostId={activePostId} comments={comments} />
+      )}
     </button>
   );
 }
 
-function RenderComms({ isActive, comments }) {
-  const neededComments = comments.filter((comment) => comment.postId === isActive);
-
+function Comments({ activePostId, comments }) {
   return (
     <div className={styles["comments-container"]}>
-      <h2>{isActive !== 0 && "Comments:"}</h2>
+      <h2>{activePostId !== 0 && "Comments:"}</h2>
 
-      {neededComments.map((neededComment) => {
+      {comments.map((comment) => {
         return (
-          <div key={neededComment.id} className={styles["comments_user-info"]}>
-            <h3 className={styles["user-name"]}>{neededComment.user.fullName}: </h3>
-            <p key={neededComment.id} className={styles["comment-body"]}>
-              {neededComment.body}
+          <div key={comment.id} className={styles["comments_user-info"]}>
+            <h3 className={styles["user-name"]}>{comment.user.fullName}: </h3>
+            <p key={comment.id} className={styles["comment-body"]}>
+              {comment.body}
             </p>
           </div>
         );
