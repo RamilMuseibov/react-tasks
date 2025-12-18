@@ -15,12 +15,23 @@
   border: 1px solid #afb9b6;
   border-radius: 10px;
   flex-direction: column;
-  width: 600px;
+  width: 800px;
 }
 
 .post-subtitle {
   font-size: 15px;
   text-align: start;
+}
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.comments_user-info {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .comment-body {
