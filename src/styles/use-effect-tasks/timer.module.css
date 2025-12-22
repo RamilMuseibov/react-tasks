@@ -1,0 +1,55 @@
+.timer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+}
+
+.timer_input-container {
+  display: flex;
+  gap: 0.2rem;
+  align-items: end;
+}
+
+.btn-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-launch {
+  cursor: pointer;
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.btn-clear {
+  cursor: pointer;
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.input-hours {
+  width: 15px;
+  height: 15px;
+  border: none;
+  background: transparent;
+}
+
+.input-minutes {
+  width: 15px;
+  height: 15px;
+  border: none;
+  background: transparent;
+}
+
+.input-seconds {
+  width: 15px;
+  height: 15px;
+  border: none;
+  background: transparent;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
