@@ -6,6 +6,7 @@ import ProductFilter from "./use-effect-tasks/ProductFilter";
 import CurrentTime from "./use-effect-tasks/CurrentTime";
 import RequestComments from "./use-effect-tasks/RequestComments";
 import RequestComments2 from "./use-effect-tasks/RequestComments2";
+import Timer from "./use-effect-tasks/Timer";
 
 export default function UseEffectTasks() {
   return (
@@ -16,7 +17,8 @@ export default function UseEffectTasks() {
       {/* <ProductFilter /> */}
       {/* <CurrentTime /> */}
       {/* <RequestComments /> */}
-      <RequestComments2 />
+      {/* <RequestComments2 /> */}
+      <Timer />
     </>
   );
 }
