@@ -7,6 +7,7 @@ import CurrentTime from "./use-effect-tasks/CurrentTime";
 import RequestComments from "./use-effect-tasks/RequestComments";
 import RequestComments2 from "./use-effect-tasks/RequestComments2";
 import Timer from "./use-effect-tasks/Timer";
+import MouseCoordinates from "./use-effect-tasks/MouseCoordinates";
 
 export default function UseEffectTasks() {
   return (
@@ -18,7 +19,8 @@ export default function UseEffectTasks() {
       {/* <CurrentTime /> */}
       {/* <RequestComments /> */}
       {/* <RequestComments2 /> */}
-      <Timer />
+      {/* <Timer /> */}
+      <MouseCoordinates />
     </>
   );
 }
