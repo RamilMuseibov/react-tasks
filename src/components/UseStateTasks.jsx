@@ -16,7 +16,7 @@ import Tooltip from "./use-state-tasks/Tooltip";
 export default function UseStateTasks() {
   return (
     <>
-      <Tabs />
+      {/* <Tabs />
       <Converter />
       <Accordion
         sections={[
@@ -63,7 +63,7 @@ export default function UseStateTasks() {
       <Accordion2 />
       <Multilingualism />
       <PaginatedList entity="users" entityCard={UserCard} />
-      <PaginatedList entity="products" entityCard={ProductCard} />
+      <PaginatedList entity="products" entityCard={ProductCard} /> */}
       <Tooltip />
     </>
   );
