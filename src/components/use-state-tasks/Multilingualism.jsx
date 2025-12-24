@@ -9,13 +9,9 @@ const languges = {
 };
 
 const keys = Object.keys(languges);
-console.log(languges);
-console.log(keys);
 
 export default function Multilingualism() {
   const [activeLanguage, setActiveLanguage] = useState("en");
-
-  console.log(activeLanguage);
 
   return (
     <div className={styles["multilingualism"]}>
