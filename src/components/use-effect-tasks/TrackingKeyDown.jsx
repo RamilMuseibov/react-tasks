@@ -5,7 +5,9 @@ export default function TrackingKeyDown() {
   console.log(keydown);
 
   useEffect(() => {
-    const keydownF = (e) => setKeydown((prev) => [...prev, e.key]);
+    const keydownF = (e) => {
+      setKeydown((prev) => (prev.length > 9 ? [e.key] : [...prev, e.key]));
+    };
 
     document.addEventListener("keydown", keydownF);
 
@@ -17,7 +19,7 @@ export default function TrackingKeyDown() {
   return (
     <div style={{ padding: 10 }}>
       <h1>TrackingKeyDown</h1>
-      {keydown.slice(-10).map((key, index) => {
+      {keydown.map((key, index) => {
         return <div key={index}>{`Вы нажали клавишу: ${key}`}</div>;
       })}
     </div>
