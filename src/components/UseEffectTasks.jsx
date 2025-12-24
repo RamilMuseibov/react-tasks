@@ -8,6 +8,7 @@ import RequestComments from "./use-effect-tasks/RequestComments";
 import RequestComments2 from "./use-effect-tasks/RequestComments2";
 import Timer from "./use-effect-tasks/Timer";
 import MouseCoordinates from "./use-effect-tasks/MouseCoordinates";
+import TrackingKeyDown from "./use-effect-tasks/TrackingKeyDown";
 
 export default function UseEffectTasks() {
   return (
@@ -20,7 +21,8 @@ export default function UseEffectTasks() {
       {/* <RequestComments /> */}
       {/* <RequestComments2 /> */}
       {/* <Timer /> */}
-      <MouseCoordinates />
+      {/* <MouseCoordinates /> */}
+      <TrackingKeyDown />
     </>
   );
 }
