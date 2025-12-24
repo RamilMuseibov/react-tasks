@@ -6,7 +6,15 @@ export default function TrackingKeyDown() {
 
   useEffect(() => {
     const keydownF = (e) => {
-      setKeydown((prev) => (prev.length > 9 ? [e.key] : [...prev, e.key]));
+      setKeydown((prev) => {
+        // prev.length > 9 ? [...prev.slice(1, prev.length), e.key] : [...prev, e.key];
+
+        if (prev.length > 9) {
+          return [...prev.slice(1, prev.length), e.key];
+        } else {
+          return [...prev, e.key];
+        }
+      });
     };
 
     document.addEventListener("keydown", keydownF);
