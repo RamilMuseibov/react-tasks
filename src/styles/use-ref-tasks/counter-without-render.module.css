@@ -1,0 +1,8 @@
+.counter-without-render {
+  padding: 10px;
+}
+
+.counter-container {
+  display: flex;
+  gap: 1rem;
+}
