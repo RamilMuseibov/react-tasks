@@ -1,0 +1,9 @@
+.quantity-renders {
+  padding: 10px;
+}
+
+.quantity-renders-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 30px;
+}
