@@ -1,0 +1,11 @@
+.form-without-renders {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn {
+  width: 50px;
+}
