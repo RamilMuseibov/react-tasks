@@ -1,0 +1,9 @@
+.saving-taimer {
+  padding: 10px;
+}
+
+.counter-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 30px;
+}
