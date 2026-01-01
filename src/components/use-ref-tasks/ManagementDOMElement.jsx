@@ -18,7 +18,7 @@ export default function ManagementDOMElement() {
 
   function generatedRandomSize() {
     sizeRef.current = `${Math.floor(Math.random() * (400 - 100 + 1) + 100)}px`;
-
+ 
     if (displayUpdateColor.current) {
       displayUpdateColor.current.style.width = sizeRef.current;
       displayUpdateColor.current.style.height = sizeRef.current;
