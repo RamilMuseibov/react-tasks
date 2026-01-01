@@ -1,0 +1,23 @@
+.management-dom-element {
+  padding: 10px;
+}
+
+.square-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.square {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+}
+
+.btn_change-color {
+  width: 100px;
+}
+
+.btn_change-size {
+  width: 100px;
+}
