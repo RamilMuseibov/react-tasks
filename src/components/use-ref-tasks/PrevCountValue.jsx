@@ -6,7 +6,7 @@ export default function PrevCountValue() {
 
   const [counter, setCounter] = useState(0);
 
-  const prevValue = useRef(counter - 1);
+  const prevValue = useRef(0);
 
   return (
     <div className={styles["prev-count-value"]}>
@@ -15,8 +15,8 @@ export default function PrevCountValue() {
       <div className={styles["counter-container"]}>
         <button
           onClick={() => {
-            prevValue.current--;
-            setCounter(counter - 1);
+            prevValue.current = counter;
+            setCounter(counter - 5);
           }}
         >
           -
@@ -34,8 +34,8 @@ export default function PrevCountValue() {
 
         <button
           onClick={() => {
-            prevValue.current++;
-            setCounter(counter + 1);
+            prevValue.current = counter;
+            setCounter(counter + 5);
           }}
         >
           +
