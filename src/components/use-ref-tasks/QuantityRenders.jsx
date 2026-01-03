@@ -7,8 +7,6 @@ export default function QuantityRenders() {
 
   console.log("render");
 
-  const displayQuantityRenders = useRef(null);
-
   const [times, setTimes] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
@@ -28,7 +26,7 @@ export default function QuantityRenders() {
 
       <div className={styles["quantity-renders-container"]}>
         QuantityRenders:
-        <div ref={displayQuantityRenders}>{quantityRenders.current}</div>
+        <div>{quantityRenders.current}</div>
       </div>
     </div>
   );
