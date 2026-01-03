@@ -1,27 +1,27 @@
 import React, { useRef } from "react";
 import styles from "../../styles/use-ref-tasks/management-dom-element.module.css";
 
-function generatedRandomSize(displayUpdateColor) {
-  const randomColor = `${Math.floor(Math.random() * (400 - 100 + 1) + 100)}px`;
-
-  if (displayUpdateColor.current) {
-    displayUpdateColor.current.style.width = randomColor;
-    displayUpdateColor.current.style.height = randomColor;
-  }
-}
-
-function generatedRandomColor(displayUpdateColor) {
-  if (displayUpdateColor.current) {
-    displayUpdateColor.current.style.background = `#${Math.random()
-      .toString(16)
-      .substring(2, 8)}`;
-  }
-}
-
 export default function ManagementDOMElement() {
   console.log("render");
 
   const displayUpdateColor = useRef(null);
+
+  function generatedRandomSize() {
+    const randomSize = `${Math.floor(Math.random() * (400 - 100 + 1) + 100)}px`;
+
+    if (displayUpdateColor.current) {
+      displayUpdateColor.current.style.width = randomSize;
+      displayUpdateColor.current.style.height = randomSize;
+    }
+  }
+
+  function generatedRandomColor() {
+    if (displayUpdateColor.current) {
+      displayUpdateColor.current.style.background = `#${Math.random()
+        .toString(16)
+        .substring(2, 8)}`;
+    }
+  }
 
   return (
     <div className={styles["management-dom-element"]}>
@@ -29,14 +29,14 @@ export default function ManagementDOMElement() {
       <div className={styles["square-container"]}>
         <button
           className={styles["btn_change-color"]}
-          onClick={() => generatedRandomColor(displayUpdateColor)}
+          onClick={() => generatedRandomColor()}
         >
           Change color
         </button>
 
         <button
           className={styles["btn_change-size"]}
-          onClick={() => generatedRandomSize(displayUpdateColor)}
+          onClick={() => generatedRandomSize()}
         >
           Change size
         </button>
