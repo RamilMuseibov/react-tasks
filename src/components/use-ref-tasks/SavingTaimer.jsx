@@ -4,19 +4,27 @@ import styles from "../../styles/use-ref-tasks/saving-taimer.module.css";
 export default function SavingTaimer() {
   console.log("render");
 
+  const [counter, setCounter] = useState(0);
   const [time, setTime] = useState(new Date().toLocaleTimeString());
-  const counter = useRef(0);
-  const displayCounter = useRef(null);
 
-  function updateCounter() {
-    if (displayCounter.current) {
-      displayCounter.current.innerHTML = counter.current;
+  const idInterval = useRef();
+
+  function startTime() {
+    if (idInterval.current) {
+      clearInterval(idInterval.current);
     }
+
+    idInterval.current = setInterval(() => {
+      setTime(new Date().toLocaleTimeString());
+    }, 1000);
   }
 
-  const idInterval = setInterval(() => {
-    setTime(new Date().toLocaleTimeString());
-  }, 1000);
+  function stopTime() {
+    if (idInterval.current) {
+      clearInterval(idInterval.current);
+      idInterval.current = null;
+    }
+  }
 
   return (
     <div className={styles["saving-taimer"]}>
@@ -25,24 +33,32 @@ export default function SavingTaimer() {
       <div className={styles["counter-container"]}>
         <button
           onClick={() => {
-            counter.current--;
-            updateCounter();
+            setCounter(counter - 1);
           }}
         >
           -
         </button>
-        <div ref={displayCounter}>{counter.current}</div>
+        <div>{counter}</div>
         <button
           onClick={() => {
-            counter.current++;
-            updateCounter();
+            setCounter(counter + 1);
           }}
         >
           +
         </button>
       </div>
 
-      <div className={styles["current-time"]}>{time}</div>
+      <div className={styles["time-container"]}>
+        <div className={styles["btn_timer-controls-container"]}>
+          <button onClick={() => stopTime()} className={styles["bnt-stop-time"]}>
+            Stop
+          </button>
+          <button onClick={() => startTime()} className={styles["bnt-play-time"]}>
+            Play
+          </button>
+        </div>
+        <div className={styles["current-time"]}>{time}</div>
+      </div>
     </div>
   );
 }
