@@ -1,24 +1,12 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styles from "../../styles/use-ref-tasks/prev-count-value.module.css";
 
 export default function PrevCountValue() {
-  const currentValue = useRef(0);
-  const prevValue = useRef(-1);
+  console.log("render");
 
-  const displayCurrentValue = useRef(null);
-  const displayPrevValue = useRef(null);
+  const [counter, setCounter] = useState(0);
 
-  function updateCurrentValue() {
-    if (displayCurrentValue.current) {
-      displayCurrentValue.current.innerHTML = currentValue.current;
-    }
-  }
-
-  function updatePrevValue() {
-    if (displayPrevValue.current) {
-      displayPrevValue.current.innerHTML = currentValue.current - 1;
-    }
-  }
+  const prevValue = useRef(counter - 1);
 
   return (
     <div className={styles["prev-count-value"]}>
@@ -27,29 +15,27 @@ export default function PrevCountValue() {
       <div className={styles["counter-container"]}>
         <button
           onClick={() => {
-            currentValue.current--;
-            updateCurrentValue();
-            updatePrevValue();
+            prevValue.current--;
+            setCounter(counter - 1);
           }}
         >
           -
         </button>
 
         <div className={styles["prev-value-container"]}>
-          <div ref={displayPrevValue}>{prevValue.current}</div>
+          <div>{prevValue.current}</div>
           <div>PrevValue</div>
         </div>
 
         <div className={styles["current-value-container"]}>
-          <div ref={displayCurrentValue}>{currentValue.current}</div>
+          <div>{counter}</div>
           <div>CurrentValue</div>
         </div>
 
         <button
           onClick={() => {
-            currentValue.current++;
-            updateCurrentValue();
-            updatePrevValue();
+            prevValue.current++;
+            setCounter(counter + 1);
           }}
         >
           +
