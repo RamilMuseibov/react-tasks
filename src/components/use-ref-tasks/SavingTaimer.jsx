@@ -11,7 +11,7 @@ export default function SavingTaimer() {
 
   function startTime() {
     if (idInterval.current) {
-      clearInterval(idInterval.current);
+      return;
     }
 
     idInterval.current = setInterval(() => {
