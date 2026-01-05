@@ -1,3 +1,11 @@
 .draggable-square {
+  user-select: none;
   padding: 10px;
+}
+
+.square {
+  cursor: grab;
+  background-color: #687193;
+  width: 100px;
+  height: 100px;
 }
