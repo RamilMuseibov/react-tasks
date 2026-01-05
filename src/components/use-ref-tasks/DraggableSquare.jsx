@@ -18,25 +18,38 @@ export default function DraggableSquare() {
     offsetRef.current.y = e.clientY - rect.y;
   };
 
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!isDragging) return;
 
-    newCoordinatesRef.current = {
-      x: e.clientX - offsetRef.current.x,
-      y: e.clientY - offsetRef.current.y,
+      newCoordinatesRef.current = {
+        x: e.clientX - offsetRef.current.x,
+        y: e.clientY - offsetRef.current.y,
+      };
+
+      if (displaySquareRef.current) {
+        displaySquareRef.current.style.top = `${
+          newCoordinatesRef.current.y < 0
+            ? 0
+            : newCoordinatesRef.current.y > window.innerHeight - 100
+            ? window.innerHeight - 100
+            : newCoordinatesRef.current.y
+        }px`;
+        displaySquareRef.current.style.left = `${
+          newCoordinatesRef.current.x < 0
+            ? 0
+            : newCoordinatesRef.current.x > window.innerWidth - 100
+            ? window.innerWidth - 100
+            : newCoordinatesRef.current.x
+        }px`;
+      }
     };
 
-    if (displaySquareRef.current) {
-      displaySquareRef.current.style.top = `${newCoordinatesRef.current.y}px`;
-      displaySquareRef.current.style.left = `${newCoordinatesRef.current.x}px`;
-    }
-  };
+    console.log(window.innerWidth);
 
-  const handleMouseUp = (e) => {
-    setIsDragging(false);
-  };
-
-  useEffect(() => {
+    const handleMouseUp = (e) => {
+      setIsDragging(false);
+    };
     document.addEventListener("mouseup", handleMouseUp);
     document.addEventListener("mousemove", handleMouseMove);
 
