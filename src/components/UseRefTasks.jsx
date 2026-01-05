@@ -8,6 +8,7 @@ import ComparisonValues from "./use-ref-tasks/ComparisonValues";
 import ManagementDOMElement from "./use-ref-tasks/ManagementDOMElement";
 import LastClick from "./use-ref-tasks/LastClick";
 import FormWithoutRenders from "./use-ref-tasks/FormWithoutRenders";
+import DraggableSquare from "./use-ref-tasks/DraggableSquare";
 
 export default function UseRefTasks() {
   return (
@@ -20,7 +21,8 @@ export default function UseRefTasks() {
       {/* <ComparisonValues /> */}
       {/* <ManagementDOMElement /> */}
       {/* <LastClick /> */}
-      <FormWithoutRenders />
+      {/* <FormWithoutRenders /> */}
+      <DraggableSquare />
     </>
   );
 }
