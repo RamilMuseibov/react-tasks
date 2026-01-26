@@ -192,7 +192,7 @@ function kernighanLinAlgorithm() {
 
           // Для отладки выводим информацию о паре
           console.log(
-            `Пара (${a},${b}): ${allScores[a]} + ${allScores[b]} - 2*${connectionExists} = ${gain}`
+            `Пара (${a},${b}): ${allScores[a]} + ${allScores[b]} - 2*${connectionExists} = ${gain}`,
           );
         }
       }
@@ -204,7 +204,7 @@ function kernighanLinAlgorithm() {
       }
 
       console.log(
-        `ЛУЧШАЯ ПАРА: (${bestPair.a}, ${bestPair.b}) с выгодой ${bestPair.gain}`
+        `ЛУЧШАЯ ПАРА: (${bestPair.a}, ${bestPair.b}) с выгодой ${bestPair.gain}`,
       );
 
       // Запоминаем этот обмен
@@ -299,7 +299,7 @@ function kernighanLinAlgorithm() {
    */
   function performRealSwaps(swaps, stepsToTake) {
     console.log(
-      `\n ВЫПОЛНЯЕМ РЕАЛЬНЫЕ ОБМЕНЫ (первые ${stepsToTake} из ${swaps.length}):`
+      `\n ВЫПОЛНЯЕМ РЕАЛЬНЫЕ ОБМЕНЫ (первые ${stepsToTake} из ${swaps.length}):`,
     );
 
     for (let i = 0; i < stepsToTake; i++) {
@@ -396,3 +396,12 @@ function kernighanLinAlgorithm() {
 
 const result = kernighanLinAlgorithm();
 console.log(result);
+
+
+
+
+
+
+
+
+

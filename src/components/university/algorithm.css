@@ -1,0 +1,282 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+.Algorithm {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+header p {
+  color: #7f8c8d;
+}
+
+/* Панель управления */
+.control-panel {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #3498db;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #95a5a6;
+  color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #7f8c8d;
+  transform: translateY(-2px);
+}
+
+/* Визуализация */
+.visualization {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.group-container {
+  flex: 1;
+  text-align: center;
+}
+
+.group-container h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.group-box {
+  min-height: 200px;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+
+.group-a {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 3px solid #5a67d8;
+}
+
+.group-b {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border: 3px solid #e53e3e;
+}
+
+.element {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.element:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.connections-info {
+  text-align: center;
+  min-width: 150px;
+}
+
+.connections-count {
+  background: white;
+  padding: 20px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 3px solid #38a169;
+}
+
+.count-number {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.count-label {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Логи */
+.logs-container {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logs-container h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.logs {
+  max-height: 300px;
+  overflow-y: auto;
+  background: #1a202c;
+  color: #cbd5e0;
+  padding: 15px;
+  border-radius: 6px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.log-entry {
+  margin-bottom: 5px;
+  white-space: pre-wrap;
+  border-bottom: 1px solid #2d3748;
+  padding: 5px 0;
+}
+
+.log-entry:last-child {
+  border-bottom: none;
+}
+
+.log-empty {
+  text-align: center;
+  color: #a0aec0;
+  font-style: italic;
+  padding: 20px;
+}
+
+/* Анимации */
+@keyframes moveElement {
+  from {
+    transform: translateX(0) scale(1);
+  }
+  to {
+    transform: translateX(var(--move-x)) scale(1.1);
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .visualization {
+    flex-direction: column;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .group-box {
+    min-height: 150px;
+  }
+
+  .element {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}

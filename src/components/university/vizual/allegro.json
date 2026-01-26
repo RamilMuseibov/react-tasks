@@ -1,0 +1,216 @@
+[
+  {
+    "net": "16",
+    "connections": [
+      {
+        "component": "DD1",
+        "pin": 16
+      },
+      {
+        "component": "DD1",
+        "pin": 5
+      },
+      {
+        "component": "SB2",
+        "pin": 1
+      },
+      {
+        "component": "HL1",
+        "pin": 1
+      },
+      {
+        "component": "DD1",
+        "pin": 6
+      }
+    ]
+  },
+  {
+    "net": "8",
+    "connections": [
+      {
+        "component": "DD1",
+        "pin": 8
+      },
+      {
+        "component": "DD1",
+        "pin": 11
+      },
+      {
+        "component": "DD1",
+        "pin": 4
+      },
+      {
+        "component": "X1",
+        "pin": 2
+      },
+      {
+        "component": "DD1",
+        "pin": 7
+      },
+      {
+        "component": "SB1",
+        "pin": 2
+      },
+      {
+        "component": "C2",
+        "pin": 1
+      },
+      {
+        "component": "C1",
+        "pin": 1
+      },
+      {
+        "component": "DD1",
+        "pin": 10
+      },
+      {
+        "component": "DD1",
+        "pin": 13
+      }
+    ]
+  },
+  {
+    "net": "N00559",
+    "connections": [
+      {
+        "component": "VD2",
+        "pin": 2
+      },
+      {
+        "component": "SB1",
+        "pin": 1
+      },
+      {
+        "component": "VD1",
+        "pin": 2
+      }
+    ]
+  },
+  {
+    "net": "N00601",
+    "connections": [
+      {
+        "component": "DD1",
+        "pin": 9
+      },
+      {
+        "component": "VD4",
+        "pin": 1
+      },
+      {
+        "component": "C2",
+        "pin": 2
+      },
+      {
+        "component": "VD2",
+        "pin": 1
+      },
+      {
+        "component": "R2",
+        "pin": 1
+      }
+    ]
+  },
+  {
+    "net": "N00732",
+    "connections": [
+      {
+        "component": "VD4",
+        "pin": 2
+      },
+      {
+        "component": "R2",
+        "pin": 2
+      },
+      {
+        "component": "DD1",
+        "pin": 14
+      }
+    ]
+  },
+  {
+    "net": "N00857",
+    "connections": [
+      {
+        "component": "VD3",
+        "pin": 2
+      },
+      {
+        "component": "DD1",
+        "pin": 3
+      },
+      {
+        "component": "DD1",
+        "pin": 15
+      },
+      {
+        "component": "R1",
+        "pin": 2
+      }
+    ]
+  },
+  {
+    "net": "N00793",
+    "connections": [
+      {
+        "component": "VD3",
+        "pin": 1
+      },
+      {
+        "component": "R1",
+        "pin": 1
+      },
+      {
+        "component": "DD1",
+        "pin": 12
+      },
+      {
+        "component": "VD1",
+        "pin": 1
+      },
+      {
+        "component": "C1",
+        "pin": 2
+      }
+    ]
+  },
+  {
+    "net": "N01153",
+    "connections": [
+      {
+        "component": "DD1",
+        "pin": 1
+      },
+      {
+        "component": "R3",
+        "pin": 1
+      }
+    ]
+  },
+  {
+    "net": "N01299",
+    "connections": [
+      {
+        "component": "SB2",
+        "pin": 2
+      },
+      {
+        "component": "X1",
+        "pin": 1
+      }
+    ]
+  },
+  {
+    "net": "N01417",
+    "connections": [
+      {
+        "component": "HL1",
+        "pin": 2
+      },
+      {
+        "component": "R3",
+        "pin": 2
+      }
+    ]
+  }
+]
